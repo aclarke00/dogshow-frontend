@@ -46,6 +46,7 @@ class NewDogForm extends Component {
         <input type="text" placeholder="Pup Size" autoComplete="off" name="size" value={this.state.size} onChange={this.handleChange} /><br></br>
         <input type="text" placeholder="Commands Known" autoComplete="off" name="commands" value={this.state.commands} onChange={this.handleChange} /><br></br>
         <input type="text" placeholder="Tricks Known" autoComplete="off" name="tricks" value={this.state.tricks} onChange={this.handleChange} /><br></br>
+        <input type="text" placeholder="Upload a Photo" autoComplete="off" name="image_url" value={this.state.image_url} onChange={this.handleChange} /><br></br>
         <input type="submit" value="Register This Pup!" />
       </form>
     );

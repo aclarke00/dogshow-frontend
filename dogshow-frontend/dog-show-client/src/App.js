@@ -91,10 +91,25 @@ class App extends React.Component {
     })
   }
 
+  removeOneDog = (id) => {
+    let {dogs} = this.state.user
+    let newArray = dogs.filter(dog => dog.id !== id)
+    this.setState({
+      user: {
+        id: this.state.user.id,
+        username: this.state.user.username,
+        dogs: newArray}
+    })
+
+    fetch(`http://localhost:4000/dogs/${id}`, {
+        method: 'DELETE',
+      })
+    }
 
   renderProfile = (routerProps) => {
     if (this.state.token) {
-      return <ProfileContainer user={this.state.user} token={this.state.token} addOneDog={this.addOneDog}/>
+      return <ProfileContainer user={this.state.user} token={this.state.token} addOneDog={this.addOneDog} 
+      removeOneDog={this.removeOneDog}/>
     } else {
       return <Redirect to="/login"/>
     }
